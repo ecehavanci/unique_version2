@@ -60,6 +60,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+    - family: adventor
+      fonts:
+        - asset: asset/texgyreadventor-bold.otf
+        - asset: asset/texgyreadventor-bolditalic.otf
+        - asset: asset/texgyreadventor-italic.otf
+        - asset: asset/texgyreadventor-regular.otf
   # fonts:
   #   - family: Schyler
   #     fonts:
