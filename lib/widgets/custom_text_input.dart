@@ -37,13 +37,16 @@ class CustomTextInput extends StatelessWidget {
       controller: controller,
       autocorrect: true,
       maxLines: 1,
-      decoration: const InputDecoration(
-        border: OutlineInputBorder(borderRadius: BorderRadius.all( Radius.circular(20))),
-        hintText: "hint",
+      decoration: InputDecoration(
+        border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+        hintText: hint,
         hintStyle: TextStyle(color: AppColors.mediumGrayLight),
         //errorText: errorText,
-        prefixIcon: Icon(Icons.email),
-        suffixIcon: Icon(Icons.add),
+        prefixIcon: Padding(
+          padding: const EdgeInsetsDirectional.only(start: 12.0),
+          child: prefixIcon,
+        ),
+        suffixIcon: suffixIcon,
         //labelText: label,
       ),
     );

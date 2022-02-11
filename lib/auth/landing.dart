@@ -1,19 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:unique_version2/widgets/custom_text_button.dart';
 import 'package:unique_version2/widgets/custom_text_input.dart';
 import 'package:unique_version2/widgets/sign_in_button.dart';
 import '../colors.dart';
 
-class LandingPage extends StatelessWidget {
+class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
 
   @override
+  _LandingPageState createState() => _LandingPageState();
+}
+
+class _LandingPageState extends State<LandingPage> {
+  bool isKeyOpen = false;
+  TextEditingController mailController = new TextEditingController();
+  TextEditingController passwordController = new TextEditingController();
+
+  @override
   Widget build(BuildContext context) {
-    TextEditingController mailController = new TextEditingController();
-    TextEditingController passwordController = new TextEditingController();
     final textTheme = Theme.of(context).textTheme;
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     final themeData = Theme.of(context).backgroundColor;
+
     return Scaffold(
       body: Container(
         color: themeData,
@@ -27,8 +36,14 @@ class LandingPage extends StatelessWidget {
                   Text(
                     "Welcome To Unique",
                     style: textTheme.subtitle1!.copyWith(fontSize: 30),
+                  ),Container(
+                    child: Image(
+                      width: width*0.45,
+                      image: AssetImage('asset/human_pet.png'),
+                      fit: BoxFit.fill, //fill type of image inside aspectRatio
+                    ),
                   ),
-                  Spacer(flex: 2),
+                  //Spacer(flex: 2),
                   Container(
                     width: width,
                     height: height * 0.70,
@@ -49,26 +64,52 @@ class LandingPage extends StatelessWidget {
                             ),
                             child: Text(
                               "Sign In",
-                              style: textTheme.bodyText1!.copyWith(fontSize: 24),
+                              style: textTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold, fontSize: 24),
                             ),
                           ),
                         ),
                         Spacer(
                           flex: 1,
                         ),
+                        Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Padding(
+                            padding: EdgeInsets.only(left: width * 0.15, bottom: 10),
+                            child: Text(
+                              "Email",
+                              style: textTheme.headline4!.copyWith(
+                                color: AppColors.mediumGray,
+                              ),
+                            ),
+                          ),
+                        ),
                         Padding(
                           padding: EdgeInsets.only(
                             left: width * 0.1,
                             right: width * 0.1,
+                            bottom: height * 0.03,
                           ),
                           child: CustomTextInput(
                             label: 'email',
                             controller: mailController,
                             keyboardType: TextInputType.emailAddress,
+                            prefixIcon: Padding(
+                              padding: const EdgeInsets.only(right: 10),
+                              child: Icon(Icons.email),
+                            ),
                           ),
                         ),
-                        Spacer(
-                          flex: 1,
+                        Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Padding(
+                            padding: EdgeInsets.only(left: width * 0.15, bottom: 10),
+                            child: Text(
+                              "Password",
+                              style: textTheme.headline4!.copyWith(
+                                color: AppColors.mediumGray,
+                              ),
+                            ),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsets.only(
@@ -77,8 +118,26 @@ class LandingPage extends StatelessWidget {
                           ),
                           child: CustomTextInput(
                             label: 'password',
-                            controller: mailController,
+                            controller: passwordController,
                             keyboardType: TextInputType.visiblePassword,
+                            prefixIcon: Padding(padding: EdgeInsets.only(right: 10), child: Icon(Icons.vpn_key)),
+                            suffixIcon: IconButton(
+                              icon: isKeyOpen
+                                  ? Icon(
+                                      Icons.remove_red_eye,
+                                      color: Colors.grey,
+                                    )
+                                  : Icon(
+                                      Icons.remove_red_eye,
+                                      color: Colors.blue,
+                                    ),
+                              onPressed: () {
+                                print(isKeyOpen);
+                                setState(() {
+                                  isKeyOpen = !isKeyOpen;
+                                });
+                              },
+                            ),
                           ),
                         ),
                         Spacer(
@@ -86,6 +145,17 @@ class LandingPage extends StatelessWidget {
                         ),
                         SignInButton(
                           title: "Sign In",
+                          width: width * 0.40,
+                          height: 50,
+                          onPressed: () {
+                            print("go to home page");
+                          },
+                          color: AppColors.yellow,
+                          textStyle: textTheme.button!.copyWith(
+                            color: AppColors.orange,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         Spacer(
                           flex: 1,
@@ -94,7 +164,16 @@ class LandingPage extends StatelessWidget {
                           "Not a member? Join us now!",
                           style: textTheme.subtitle1,
                         ),
-                        Spacer(flex: 1,)
+                        CustomTextButton(
+                          title: "Sign Up",
+                          style: textTheme.subtitle1!.copyWith(color: AppColors.orange, fontWeight: FontWeight.bold),
+                          onPressed: () {
+                            print("go to sign up page");
+                          },
+                        ),
+                        Spacer(
+                          flex: 1,
+                        )
                       ],
                     ),
                   ),
