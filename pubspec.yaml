@@ -46,6 +46,7 @@ flutter:
   assets:
     - asset/sign_in_back.jpg
     - asset/human_pet.png
+    - asset/human_pet_game.png
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
