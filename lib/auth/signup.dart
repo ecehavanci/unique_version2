@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:unique_version2/widgets/custom_text_button.dart';
 import 'package:unique_version2/widgets/custom_text_input.dart';
 import 'package:unique_version2/widgets/sign_in_button.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../colors.dart';
 
 class SignUpPage extends StatefulWidget {
