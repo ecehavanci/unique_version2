@@ -32,6 +32,7 @@ class CustomTextInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: validator,
       onSaved: onSaved,
       keyboardType: keyboardType,
       controller: controller,
