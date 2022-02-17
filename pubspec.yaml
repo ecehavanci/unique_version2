@@ -28,6 +28,7 @@ dependencies:
   fluttertoast: ^8.0.8
 
 
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -50,6 +51,14 @@ flutter:
     - asset/sign_in_back.jpg
     - asset/human_pet.png
     - asset/human_pet_game.png
+    - asset/dog_icon.png
+    - asset/bird_icon.png
+    - asset/bunny_icon.png
+    - asset/cat_icon.png
+    - asset/fish_icon.png
+    - asset/mouse_icon.png
+    - asset/cat_icon2.png
+    - asset/mouse_icon2.png
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

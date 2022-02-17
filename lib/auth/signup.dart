@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:unique_version2/init/home.dart';
+import 'package:unique_version2/init/pet_owner_home.dart';
 import 'package:unique_version2/widgets/custom_text_button.dart';
 import 'package:unique_version2/widgets/custom_text_input.dart';
 import 'package:unique_version2/widgets/sign_in_button.dart';
@@ -40,6 +40,7 @@ class _SignUpPageState extends State<SignUpPage> {
         newUser = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: mailController.text, password: passwordController.text);
         uid = newUser.user!.uid;
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage(uid: uid)));
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
           _showToast("The password provided is too weak.");
@@ -50,13 +51,16 @@ class _SignUpPageState extends State<SignUpPage> {
         print(e);
         _showToast(e.toString());
       }
+
     }
+    else
+      _showToast("Fill the necessary inputs");
 
     setState(() {
       isLoading = false;
     });
 
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage(uid: uid)));
+
   }
 
   @override
