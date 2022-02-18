@@ -4,6 +4,8 @@ import 'package:unique_version2/widgets/custom_text_button.dart';
 import 'package:unique_version2/widgets/pet_selector_container.dart';
 import 'package:unique_version2/widgets/profile_pic_shower.dart';
 
+import '../widgets/my_pets_cards.dart';
+
 class HomePage extends StatefulWidget {
   final String uid;
 
@@ -87,11 +89,20 @@ class _HomePageState extends State<HomePage> {
                           padding: EdgeInsets.only(left: width * 0.05, right: width * 0.05),
                           child: Column(
                             children: [
-                              CustomTextButton(
-                                title: 'Look for Pet Sitter',
-                                onPressed: () {},
-                                style: textTheme.subtitle1!
-                                    .copyWith(fontSize: 13, fontWeight: FontWeight.bold, color: AppColors.orange2),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.search,
+                                    color: AppColors.orange,
+                                  ),
+                                  CustomTextButton(
+                                    title: 'Look for Pet Sitter',
+                                    onPressed: () {},
+                                    style: textTheme.subtitle1!
+                                        .copyWith(fontSize: 13, fontWeight: FontWeight.bold, color: AppColors.orange2),
+                                  ),
+                                ],
                               ),
                               Align(
                                 alignment: Alignment.bottomLeft,
@@ -180,7 +191,42 @@ class _HomePageState extends State<HomePage> {
                               ),
                               Column(
                                 children: [
-                                  
+                                  PetCard(
+                                    url:
+                                        'https://i.picsum.photos/id/137/200/200.jpg?hmac=qhNK8PzcRQJaCJlGEj1q5ceRIkKkfPmVuOwE5ZInXA8',
+                                    petName: "name",
+                                    petAge: "12",
+                                    petBreed: "malesian",
+                                    screenHeight: height,
+                                    screenWidth: width,
+                                  ),
+                                  PetCard(
+                                    url:
+                                        'https://i.picsum.photos/id/137/200/200.jpg?hmac=qhNK8PzcRQJaCJlGEj1q5ceRIkKkfPmVuOwE5ZInXA8',
+                                    petName: "name",
+                                    petAge: "12",
+                                    petBreed: "malesian",
+                                    screenHeight: height,
+                                    screenWidth: width,
+                                  ),
+                                  PetCard(
+                                    url:
+                                        'https://i.picsum.photos/id/137/200/200.jpg?hmac=qhNK8PzcRQJaCJlGEj1q5ceRIkKkfPmVuOwE5ZInXA8',
+                                    petName: "name",
+                                    petAge: "12",
+                                    petBreed: "malesian",
+                                    screenHeight: height,
+                                    screenWidth: width,
+                                  ),
+                                  PetCard(
+                                    url:
+                                        'https://i.picsum.photos/id/137/200/200.jpg?hmac=qhNK8PzcRQJaCJlGEj1q5ceRIkKkfPmVuOwE5ZInXA8',
+                                    petName: "name",
+                                    petAge: "12",
+                                    petBreed: "malesian",
+                                    screenHeight: height,
+                                    screenWidth: width,
+                                  ),
                                 ],
                               ),
                             ],
